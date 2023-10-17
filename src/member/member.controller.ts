@@ -5,9 +5,9 @@ import { Response } from 'express'
 
 @Controller('/member')
 export class MemberController {
-  // @Inject('MemberService')
-  // private memberService: MemberService;
-  constructor(private memberService: MemberService){};
+  @Inject('MemberService')
+  private memberService: MemberService;
+  // constructor(private memberService: MemberService){};
 
   @Post('/create')
   signUp(@Body() member: Member, @Res() res: Response) {

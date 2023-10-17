@@ -11,11 +11,11 @@ import { MemberRepository } from './member.repository';
         MemberRepository,
         {
             provide : 'MemberService',
-            useValue : MemberService,
+            useClass : MemberService, // 상수 주입시에는 userValue
         },
         {
             provide : 'MemberRepository',
-            useValue :MemberRepository
+            useClass :MemberRepository 
         }
 
     ],
