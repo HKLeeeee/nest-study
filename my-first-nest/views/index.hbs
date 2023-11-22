@@ -6,7 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>회원가입</h1>
+    <button type="button" id="github">깃허브 회원가입 테스트</button>
+    <button type="button" id="info">유저 정보 조회</button>
+    <a href="https://api.algoitni.site/auth/profile"> 유저 정보 조회 </a>
+
+    <script>
+        const login = document.getElementById('github')
+        login.addEventListener("click", () => {
+            document.location='https://api.algoitni.site/auth/github'
+        })
+
+        document.getElementById("info").addEventListener("click", ()=>{
+            fetch("https://api.algoitni.site/auth/profile", {credentials: 'include'})
+            .then(res =>  res.json())
+            .then(console.log)
+        })
+    </script>
+    {{!-- <h1>회원가입</h1>
     <h2>form action -> content-type: x-www-urlencoded</h2>
     <form action="/member/create" method="post">
         <input type="text" name="id" placeholder="id를 입력하세요"/>
@@ -39,6 +55,6 @@
                 };
             })
         }
-    </script>
+    </script> --}}
 </body>
 </html>

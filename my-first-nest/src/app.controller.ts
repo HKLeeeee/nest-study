@@ -1,5 +1,6 @@
-import { Controller, Get, Param, Render } from '@nestjs/common';
+import { Controller, Get, Param, Render, Req } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Request } from 'express';
 
 @Controller()
 export class AppController {
@@ -10,7 +11,8 @@ export class AppController {
   index() {}
 
   @Get('/test')
-  test(): string {
+  test(@Req() req: Request): string {
+    console.log(req.cookies);
     return this.appService.getHello();
   }
 
